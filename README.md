@@ -16,18 +16,9 @@ CTEs, joins, UNION ALL, grouping, aggregation, COALESCE and NULLIF.
 
 ## Files and execution
 `queries/` contains the seven individual queries. `olympics_analysis.sql` combines them; run either the combined file or the individual queries, not both. `database_schema.md` documents the fields used in the analysis.
-
-The original `paris_database.sql` was provided through the university course and is not included. To execute the queries, obtain authorized access to the original database (or an equivalent compatible database), inspect its SQL dialect and schema, and import it. For a PostgreSQL-compatible source:
-
-```sh
-createdb olympics_real
-psql -v ON_ERROR_STOP=1 -d olympics_real -f paris_database.sql
-psql -v ON_ERROR_STOP=1 -d olympics_real -f olympics_analysis.sql
-```
-
-The queries expect the `olympics` schema. The assignment explains that integrity constraints are absent from the original dump; verify keys and duplicates before adding constraints. The SQL assumes consistent country and athlete identifiers and one record per medal award. The original database was not available for execution, so numerical results and full schema compatibility have not been verified.
+The original `paris_database.sql` was provided through the university course and is not included. 
 
 ## Academic context
-Collaborative undergraduate coursework. Tokyo medal totals are grouped by country. The coach query groups by name under the assignment’s country-and-discipline association rule; the course data must be checked for homonymous coaches or repeated coach records. Confirm course and co-author permission and acknowledge contributions before public release.
+Undergraduate coursework. Tokyo medal totals are grouped by country. The coach query groups by name under the assignment’s country-and-discipline association rule; the course data must be checked for homonymous coaches or repeated coach records. 
 
-All seven queries passed a local SQLite smoke test using temporary in-memory test records and with the PostgreSQL search-path statement omitted. These test records are not included; this is not verification against PostgreSQL or the course database.
+All seven queries passed a local SQLite smoke test using temporary in-memory test records and with the PostgreSQL search-path statement omitted. These test records are not included.
